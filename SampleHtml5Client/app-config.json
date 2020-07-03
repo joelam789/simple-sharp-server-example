@@ -1,0 +1,9 @@
+{
+
+  "defaultMerchant": "m1",
+  "defaultCurrency": "CNY",
+  "defaultPlayer": "p1",
+
+  "loginServerAddress": "http://127.0.0.1:15550"
+
+}

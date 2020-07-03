@@ -1,0 +1,37 @@
+
+{
+    "topbar": {
+        "player": "Player",
+        "table": "Table",
+        "merchant": "Merchant",
+        "currency": "Currency",
+        "balance": "Balance",
+        "lobby": "Lobby",
+        "flag-img": "./img/flags/uk.png",
+        "language": "Language",
+        "english": "English",
+        "chinese": "Chinese"
+    },
+
+    "lobby": {
+        "enter": "Enter",
+        "bet-limit": "Bet Limit",
+
+        "ok": "OK",
+        "cancel": "Cancel"
+    },
+
+    "game": {
+        "system": "[SYSTEM]",
+        "all":"[ALL]",
+        "private": "Private",
+        "messages": "Messages",
+        "users": "Users",
+        "input": "Input",
+        "send": "Send",
+        "to": "to",
+        "you": "you",
+        "place-bet": "Place Bet",
+        "play-cards": "Play"
+    }
+}

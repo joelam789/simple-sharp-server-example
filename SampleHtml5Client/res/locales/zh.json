@@ -1,0 +1,38 @@
+
+{
+    "topbar": {
+        "player": "玩家",
+        "table": "游戏桌",
+        "merchant": "商家",
+        "currency": "货币",
+        "balance": "金额",
+        "lobby": "游戏大厅",
+        "flag-img": "./img/flags/china.png",
+        "language": "语言",
+        "english": "英文",
+        "chinese": "中文"
+    },
+
+    "lobby": {
+        "enter": "进入游戏",
+        "bet-limit": "下注限额",
+
+        "ok": "确定",
+        "cancel": "取消"
+    },
+
+    "game": {
+        "system": "【系统消息】",
+        "all":"【全部人】",
+        "private": "私聊",
+        "messages": "聊天信息",
+        "users": "在线用户",
+        "input": "信息输入",
+        "send": "发送",
+        "to": "对",
+        "you": "你",
+        "place-bet": "下注",
+        "play-cards": "出牌"
+        
+    }
+}
