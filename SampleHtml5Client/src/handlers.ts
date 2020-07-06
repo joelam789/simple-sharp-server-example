@@ -130,6 +130,7 @@ export class ChatMessageHandler implements MessageHandler {
     handle(messenger: Messenger, msg: any): boolean {
         if (msg.msg == "chat_message") {
             messenger.isRequesting = false;
+            console.log(msg);
             let data = {
                 merchant_code: msg.merchant_code,
                 currency_code: msg.currency_code,

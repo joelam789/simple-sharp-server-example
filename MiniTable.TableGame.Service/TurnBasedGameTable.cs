@@ -1255,9 +1255,9 @@ namespace MiniTable.TableGame.Service
                 var msgdata = new
                 {
                     msg = "chat_message",
-                    player_id = player.PlayerId,
-                    merchant_code = player.MerchantCode,
-                    currency_code = player.CurrencyCode,
+                    player_id = playerId,
+                    merchant_code = merchantCode,
+                    currency_code = currencyCode,
                     message = message
                 };
 
