@@ -148,6 +148,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MiniTable.BackEnd.Api\MiniTable.BackEnd.Api.csproj">
+      <Project>{08e18d96-7460-4bbb-ac77-74cc0f79b17b}</Project>
+      <Name>MiniTable.BackEnd.Api</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MiniTable.BackgroundUpdater.Service\MiniTable.BackgroundUpdater.Service.csproj">
       <Project>{66e6ac2b-adb5-4595-aefe-925eed0b7d26}</Project>
       <Name>MiniTable.BackgroundUpdater.Service</Name>

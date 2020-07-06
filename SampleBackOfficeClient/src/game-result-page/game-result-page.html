@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <meta http-equiv="cache-control" content="max-age=0" />
+        <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate" />
+        <meta http-equiv="expires" content="0" />
+        <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+        <meta http-equiv="pragma" content="no-cache" />
+        <link rel="stylesheet" type="text/css" href="css/easyui/themes/default/easyui.css">
+        <link rel="stylesheet" type="text/css" href="css/easyui/themes/icon.css">
+        <link rel="stylesheet" type="text/css" href="css/easyui/themes/color.css">
+        <title>Game Result List</title>
+    </head>
+
+    <body>
+        <script src="js/core.min.js"></script>
+        <script src="js/system.js"></script>
+
+        <script src="js/md5.min.js"></script>
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/easyui/jquery.easyui.min.js"></script>
+        <!-- <script src="js/easyui/locale/easyui-lang-zh_CN.js"></script> -->
+        <script src="js/easyui/locale/easyui-lang-en.js"></script>
+
+        <script src="js/app-config.js"></script>
+
+        <table id="game-result-grid" class="easyui-datagrid" style="width:100%;height:calc(100% - 10px)"
+			url="#"
+			title="Game Results" toolbar="#tb"
+			rownumbers="true" pagination="true">
+		<thead>
+			<tr>
+                <th field="game_id" width="200">Game ID</th>
+                <th field="game_time" width="200">Game Time</th>
+				<th field="game_result" width="500">Game Result</th>
+			</tr>
+		</thead>
+	</table>
+	<div id="tb" class="easyui-panel" style="padding:3px" data-options="noheader: true">
+        <span style="margin-left:10px">From:</span>
+		<input class="easyui-datetimebox" id="fromdt" style="width:180px">
+        <span style="margin-left:10px">To:</span>
+		<input class="easyui-datetimebox" id="todt" style="width:180px">
+		<a href="#" class="easyui-linkbutton" style="margin-left:10px" iconCls="icon-search" onclick="window.gui.doSearch()">Search</a>
+	</div>
+        
+        <script>
+
+            function getUrlParam(name, url) {
+                if (!url) url = window.location.href;
+                name = name.replace(/[\[\]]/g, "\\$&");
+                var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)");
+                var results = regex.exec(url);
+                if (!results) return null;
+                if (!results[2]) return '';
+                return decodeURIComponent(results[2].replace(/\+/g, " "));
+            }
+
+            window.appConfig["merchantCode"] = getUrlParam("merchantCode");
+            window.appConfig["userId"] = getUrlParam("userId");
+            window.appConfig["sessionId"] = getUrlParam("sessionId");
+
+            SystemJS.config( { packages: { ".": { defaultExtension: "js" } } } );
+            window.onload = function()
+             {
+                SystemJS.import('game-result-page/game-result-page').then(function(main) 
+                {
+                    window.gui = main.gui;
+                    var len = window.appConfig.validationUrl.length;
+                    var url = len > 0 ? window.appConfig.validationUrl : "";
+                    window.gui.entry.validate("", { session_id: window.appConfig["sessionId"] }, function(result) {
+                        if (result && result.error === 0) {
+                            window.gui.init(function () {
+                                // ...
+                            });
+                        } else {
+                            $.messager.alert("Security","Please login first", "error", function () {
+                                window.location.href = window.appConfig.loginPage;
+                            });
+                        }
+                    })
+
+                });
+            }
+            
+        </script>
+        
+    </body>
+</html>
