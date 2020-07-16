@@ -57,7 +57,9 @@ namespace MiniTable.MerchantApi.Default
 
             try
             {
-                ret = await RemoteCaller.Request(merchantUrl + "/player/validate-login", apiReq, null, 10 * 1000);
+                var rawret = await RemoteCaller.Request<Tuple<int, string>>(merchantUrl + "/player/validate-login", apiReq, null, 10 * 1000);
+                m_LocalNode.GetLogger().Info("3-Way Login Reply Code: " + rawret.Item1);
+                ret = m_LocalNode.GetJsonHelper().ToJsonObject(rawret.Item2);
             }
             catch (Exception ex)
             {
