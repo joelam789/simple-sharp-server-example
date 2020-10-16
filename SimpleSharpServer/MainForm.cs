@@ -75,7 +75,6 @@ namespace SimpleSharpServer
             {
                 e.Cancel = false;
             }
-                
         }
 
         private async void btnStart_Click(object sender, EventArgs e)
